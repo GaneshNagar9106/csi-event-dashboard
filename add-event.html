@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add Event · CSI AITR Event Management</title>
+<meta name="description" content="Add or edit a CSI AITR event." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="add-event">
+
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CSI</span>
+      <span class="brand-text">
+        <strong>CSI AITR</strong>
+        <span>Event Dashboard</span>
+      </span>
+    </a>
+    <nav class="side-nav">
+      <a href="index.html"><span class="ico">🏠</span> Dashboard</a>
+      <a href="events.html"><span class="ico">📅</span> Events</a>
+      <a href="add-event.html" class="active"><span class="ico">➕</span> Add Event</a>
+      <a href="events.html"><span class="ico">🧾</span> Registrations</a>
+    </nav>
+    <div class="side-foot">
+      Computer Society of India<br />AITR Student Chapter
+    </div>
+  </aside>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div>
+          <h1 id="formHeading">Add event</h1>
+          <div class="subtitle" id="formSubheading">Fill in the details below to publish a new event</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="events.html" class="btn btn-outline">← Back to events</a>
+      </div>
+    </header>
+
+    <div class="page-body">
+      <form class="form-card" id="eventForm" novalidate>
+        <div class="form-grid">
+
+          <div class="form-field full">
+            <label for="name">Event name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. CSI Web Development Workshop" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="venue">Venue</label>
+            <input type="text" id="venue" name="venue" placeholder="e.g. Seminar Hall" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="speaker">Speaker</label>
+            <input type="text" id="speaker" name="speaker" placeholder="e.g. Dr. Vikram Nair" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="capacity">Capacity <span class="hint">— max seats</span></label>
+            <input type="number" id="capacity" name="capacity" min="1" placeholder="e.g. 60" />
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label>&nbsp;</label>
+            <span class="hint">Registrations are tracked separately and shown on the event details page.</span>
+          </div>
+
+          <div class="form-field full">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="What is this event about?"></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label>Event image <span class="hint">— optional</span></label>
+            <div class="image-drop" id="imageDrop">Click to upload a cover image (optional)</div>
+            <input type="file" id="imageInput" accept="image/*" class="hidden" />
+            <div class="image-preview" id="imagePreview">
+              <img src="" alt="Event cover preview" />
+              <span class="hint">This image will show on the event's details page.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Add event</button>
+          <a href="events.html" class="btn btn-outline">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="dot"></span><span class="toast-text"></span></div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Events · CSI AITR Event Management</title>
+<meta name="description" content="Browse, search and filter all CSI AITR events." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="events">
+
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CSI</span>
+      <span class="brand-text">
+        <strong>CSI AITR</strong>
+        <span>Event Dashboard</span>
+      </span>
+    </a>
+    <nav class="side-nav">
+      <a href="index.html"><span class="ico">🏠</span> Dashboard</a>
+      <a href="events.html" class="active"><span class="ico">📅</span> Events</a>
+      <a href="add-event.html"><span class="ico">➕</span> Add Event</a>
+      <a href="events.html"><span class="ico">🧾</span> Registrations</a>
+    </nav>
+    <div class="side-foot">
+      Computer Society of India<br />AITR Student Chapter
+    </div>
+  </aside>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div>
+          <h1>Events</h1>
+          <div class="subtitle">Search, filter, and manage every event</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="add-event.html" class="btn btn-primary">➕ Add Event</a>
+      </div>
+    </header>
+
+    <div class="page-body">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span class="ico">🔍</span>
+          <input type="search" id="searchInput" placeholder="Search by name, speaker or venue…" aria-label="Search events" />
+        </div>
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="ongoing">Ongoing</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="venueFilter" aria-label="Filter by venue">
+          <option value="">All venues</option>
+        </select>
+        <input type="date" id="dateFilter" aria-label="Filter by date" />
+        <button class="btn btn-ghost" id="clearFiltersBtn" type="button">Clear filters</button>
+      </div>
+
+      <div class="section-head">
+        <h2>All events</h2>
+        <span id="resultCount" class="count-pill">Loading…</span>
+      </div>
+
+      <div class="event-grid" id="eventGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal-box">
+    <div class="modal-icon">🗑️</div>
+    <h3>Delete this event?</h3>
+    <p>You're about to permanently remove <strong class="delete-target-name"></strong> along with its registration list. This can't be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline cancel-delete">Cancel</button>
+      <button class="btn btn-danger confirm-delete">Yes, delete it</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="dot"></span><span class="toast-text"></span></div>
+
+<script src="script.js"></script>
+</body>
+</html>
